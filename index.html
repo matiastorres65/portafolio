@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matías Torres Chávez — Técnico Electrónico</title>
+
+  <!-- OpenGraph para LinkedIn -->
+  <meta name="description" content="Técnico de Nivel Medio en Electrónica. Escuela Industrial Salesiana San Ramón, La Serena. Disponible para práctica profesional, empleo técnico y turnos operacionales.">
+  <meta property="og:title" content="Matías Torres Chávez — Técnico Electrónico">
+  <meta property="og:description" content="Portafolio profesional. Especialidad en diagnóstico, tableros eléctricos, PLC y protocolos de seguridad LOTOTO/AST. Disponibilidad inmediata.">
+  <meta property="og:type" content="website">
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #09090b;
+      --surface:  #111113;
+      --card:     #18181b;
+      --border:   #27272a;
+      --border-s: #3f3f46;
+      --text:     #fafafa;
+      --text-2:   #a1a1aa;
+      --text-3:   #71717a;
+      --accent:   #d97706;
+      --accent-s: #f59e0b;
+      --green:    #22c55e;
+      --mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-2);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 0; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ── Typography ── */
+    .t-display {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .t-heading {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      font-family: var(--mono);
+    }
+    .t-section {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .t-body { font-size: 0.938rem; color: var(--text-2); line-height: 1.7; }
+    .t-small { font-size: 0.813rem; color: var(--text-3); }
+    .t-mono { font-family: var(--mono); font-size: 0.75rem; }
+    .t-accent { color: var(--accent-s); }
+    .t-white { color: var(--text); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.813rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: #d4d4d8; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--border-s); color: var(--text); }
+    .btn-accent {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+    .btn-accent:hover { background: var(--accent-s); }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+    }
+    .badge-live {
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      color: var(--green);
+    }
+    .badge-live .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      transition: border-color 0.2s ease;
+    }
+    .card:hover { border-color: var(--border-s); }
+
+    /* ── Grid Helpers ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(9, 9, 11, 0.8);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-brand .monogram {
+      width: 2rem; height: 2rem;
+      border-radius: 0.375rem;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: var(--bg);
+      letter-spacing: 0.05em;
+    }
+    .nav-brand span { font-weight: 600; font-size: 0.875rem; color: var(--text); }
+    .nav-links { display: none; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-3);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-actions { display: flex; gap: 0.5rem; align-items: center; }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+
+    /* ── Data Row ── */
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .data-row:last-child { border-bottom: none; }
+    .data-label { color: var(--text-3); font-weight: 500; }
+    .data-value { color: var(--text); font-weight: 500; text-align: right; }
+
+    /* ── Skill Tag ── */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.625rem;
+      border-radius: 0.25rem;
+      font-size: 0.6875rem;
+      font-family: var(--mono);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-3);
+    }
+
+    /* ── Rule Step ── */
+    .rule-step {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .rule-step:last-child { border-bottom: none; }
+    .rule-num {
+      width: 1.75rem; height: 1.75rem;
+      border-radius: 0.375rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--accent-s);
+      flex-shrink: 0;
+    }
+    .rule-title { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .rule-desc { font-size: 0.75rem; color: var(--text-3); margin-top: 0.125rem; }
+
+    /* ── Project ── */
+    .project { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .project:last-child { border-bottom: none; }
+    .project-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem; }
+    .project-title { font-size: 1.125rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+
+    /* ── Contact Card ── */
+    .contact-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .contact-icon {
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: var(--text-3);
+    }
+
+    /* ── Utility ── */
+    .flex { display: flex; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-3 { margin-top: 0.75rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .pt-4 { padding-top: 1rem; }
+    .w-full { width: 100%; }
+    .text-center { text-align: center; }
+    .max-w-xl { max-width: 36rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .hidden-mobile { display: none; }
+    @media (min-width: 640px) { .hidden-mobile { display: inline-flex; } }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 1.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block;
+      padding: 0.625rem 0;
+      font-size: 0.875rem;
+      color: var(--text-3);
+      font-weight: 500;
+    }
+    .mobile-toggle { display: flex; md:display: none; background: none; border: none; color: var(--text-3); cursor: pointer; padding: 0.5rem; }
+    @media (min-width: 768px) { .mobile-toggle { display: none; } }
+
+    /* ── Competencia item ── */
+    .comp-item { padding: 0.5rem 0; }
+    .comp-item .comp-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .comp-item .comp-label::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── Fortaleza card ── */
+    .fort-card { padding: 1.25rem 1.5rem; }
+    .fort-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .fort-desc { font-size: 0.75rem; color: var(--text-3); line-height: 1.5; }
+  </style>
+</head>
+
+<body>
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <div class="monogram">MT</div>
+        <span>Matías Torres</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#competencias">Competencias</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="CV_Matias_Torres_Chavez.pdf" download class="btn btn-ghost hidden-mobile" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          CV
+        </a>
+        <a href="https://wa.me/56973411476?text=Hola%20Mat%C3%ADas,%20vi%20tu%20portafolio%20profesional%20y%20me%20gustar%C3%ADa%20coordinar%20una%20entrevista." target="_blank" class="btn btn-accent" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+          Contactar
+        </a>
+        <button class="mobile-toggle" id="menu-btn" aria-label="Menú">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#competencias">Competencias</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+      <div style="padding-top: 0.75rem; border-top: 1px solid var(--border); margin-top: 0.5rem; display: flex; gap: 0.5rem;">
+        <a href="CV_Matias_Torres_Chavez.pdf" download class="btn btn-ghost" style="flex:1; justify-content: center; font-size: 0.75rem; padding: 0.625rem;">Descargar CV</a>
+        <a href="https://wa.me/56973411476" target="_blank" class="btn btn-accent" style="flex:1; justify-content: center; font-size: 0.75rem; padding: 0.625rem;">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section style="padding: 8rem 0 4rem;">
+    <div class="container">
+      <div class="badge badge-live mb-6">
+        <span class="dot"></span>
+        DISPONIBLE PARA INCORPORACIÓN INMEDIATA
+      </div>
+
+      <h1 class="t-display">
+        Matías<br>Torres Chávez
+      </h1>
+
+      <p class="t-body mt-4" style="max-width: 38rem;">
+        Técnico de Nivel Medio en Electrónica egresando de la Escuela Industrial Salesiana San Ramón. Formación intensiva en diagnóstico, tableros eléctricos, PLC y cultura de Cero Daño. Disponible para práctica profesional, empleo técnico y turnos operacionales.
+      </p>
+
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="CV_Matias_Torres_Chavez.pdf" download class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar CV
+        </a>
+        <a href="Carta_Presentacion_Matias_Torres_Chavez.pdf" target="_blank" class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Carta de Presentación
+        </a>
+        <a href="https://wa.me/56973411476?text=Hola%20Mat%C3%ADas,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20entrevista." target="_blank" class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── FICHA ── -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap: 3rem;">
+        <!-- Datos -->
+        <div>
+          <p class="t-heading mb-6">Datos Profesionales</p>
+          <div class="data-row">
+            <span class="data-label">Especialidad</span>
+            <span class="data-value">Electrónica Industrial</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Nivel</span>
+            <span class="data-value">Técnico de Nivel Medio</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Institución</span>
+            <span class="data-value">Esc. Industrial Salesiana San Ramón</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Período</span>
+            <span class="data-value">2022 – 2026</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Estado</span>
+            <span class="data-value t-accent">En Egreso</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Ubicación</span>
+            <span class="data-value">Coquimbo / La Serena, Chile</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Disponibilidad</span>
+            <span class="data-value">Inmediata · 7×7 · 14×14 · Turnos</span>
+          </div>
+        </div>
+
+        <!-- Fortalezas -->
+        <div>
+          <p class="t-heading mb-6">Fortalezas Operacionales</p>
+          <div class="card" style="padding: 0;">
+            <div class="fort-card" style="border-bottom: 1px solid var(--border);">
+              <div class="fort-title">Concentración e Hiperenfoque</div>
+              <div class="fort-desc">Atención sostenida en diagnósticos de precisión y mediciones con instrumental bajo presión operativa.</div>
+            </div>
+            <div class="fort-card" style="border-bottom: 1px solid var(--border);">
+              <div class="fort-title">Puntualidad Intachable</div>
+              <div class="fort-desc">Cumplimiento absoluto de horarios, charlas de seguridad y relevos de turno sin excepción.</div>
+            </div>
+            <div class="fort-card" style="border-bottom: 1px solid var(--border);">
+              <div class="fort-title">Resistencia Física & Mental</div>
+              <div class="fort-desc">Tolerancia al trabajo continuo, esfuerzo de terreno y jornadas extensas de alta exigencia.</div>
+            </div>
+            <div class="fort-card" style="border-bottom: 1px solid var(--border);">
+              <div class="fort-title">Proactividad Sin Supervisión</div>
+              <div class="fort-desc">Iniciativa para detectar necesidades, preparar herramientas y resolver imprevistos con criterio.</div>
+            </div>
+            <div class="fort-card" style="border-bottom: 1px solid var(--border);">
+              <div class="fort-title">Multifuncionalidad Operativa</div>
+              <div class="fort-desc">Versatilidad para alternar entre calibraciones, cableado de fuerza, montaje y apoyo logístico.</div>
+            </div>
+            <div class="fort-card">
+              <div class="fort-title">Respeto & Orden Riguroso</div>
+              <div class="fort-desc">Trato profesional, cuidado del instrumental, puesto de trabajo impecable y receptividad total.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── COMPETENCIAS ── -->
+  <section id="competencias" class="section">
+    <div class="container">
+      <p class="t-heading mb-3">Competencias Técnicas</p>
+      <h2 class="t-section mb-8">Dominio verificable</h2>
+
+      <div class="grid-3" style="gap: 1.5rem;">
+        <!-- Col 1 -->
+        <div class="card">
+          <p class="t-mono t-accent mb-3" style="font-weight: 500;">DIAGNÓSTICO & MEDICIÓN</p>
+          <div class="comp-item"><span class="comp-label">Multímetro digital y pinza amperimétrica</span></div>
+          <div class="comp-item"><span class="comp-label">Osciloscopio de banco</span></div>
+          <div class="comp-item"><span class="comp-label">Detección de fallas — analógico y digital</span></div>
+          <div class="comp-item"><span class="comp-label">Lectura de planos, unifilares y datasheets</span></div>
+          <div class="comp-item"><span class="comp-label">Soldadura electrónica de precisión</span></div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag">Fluke</span>
+            <span class="tag">Rigol</span>
+            <span class="tag">Datasheets</span>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="card">
+          <p class="t-mono t-accent mb-3" style="font-weight: 500;">AUTOMATIZACIÓN & CONTROL</p>
+          <div class="comp-item"><span class="comp-label">Programación PLC (Ladder)</span></div>
+          <div class="comp-item"><span class="comp-label">Relevadores, temporizadores, contactores</span></div>
+          <div class="comp-item"><span class="comp-label">Sensores inductivos, capacitivos, ópticos</span></div>
+          <div class="comp-item"><span class="comp-label">Secuencias automáticas y señalización</span></div>
+          <div class="comp-item"><span class="comp-label">Lógica de control y esquemas de mando</span></div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag">PLC Ladder</span>
+            <span class="tag">Sensores</span>
+            <span class="tag">Relés</span>
+          </div>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="card">
+          <p class="t-mono t-accent mb-3" style="font-weight: 500;">TABLEROS & FUERZA ELÉCTRICA</p>
+          <div class="comp-item"><span class="comp-label">Montaje de tableros — fuerza y control</span></div>
+          <div class="comp-item"><span class="comp-label">Protecciones termomagnéticas y diferenciales</span></div>
+          <div class="comp-item"><span class="comp-label">Motores monofásicos y trifásicos</span></div>
+          <div class="comp-item"><span class="comp-label">Canalizaciones y tendido normado SEC</span></div>
+          <div class="comp-item"><span class="comp-label">Herramientas manuales y electroportátiles</span></div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tag">Normativa SEC</span>
+            <span class="tag">Trifásicos</span>
+            <span class="tag">RIC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── SEGURIDAD ── -->
+  <section id="seguridad" class="section">
+    <div class="container">
+      <p class="t-heading mb-3">Protocolos de Seguridad</p>
+      <h2 class="t-section mb-8">Cultura de Cero Daño</h2>
+
+      <div class="grid-2" style="gap: 2rem;">
+        <!-- 5 Reglas -->
+        <div class="card" style="padding: 2rem;">
+          <div class="flex items-center gap-3 mb-6" style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+            <span class="t-mono t-accent" style="font-weight: 600;">LAS 5 REGLAS DE ORO</span>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">01</div>
+            <div>
+              <div class="rule-title">Desconectar — corte visible</div>
+              <div class="rule-desc">Apertura efectiva de todas las fuentes de alimentación eléctrica.</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">02</div>
+            <div>
+              <div class="rule-title">Enclavamiento — prevenir reconexión</div>
+              <div class="rule-desc">Bloqueo con candado personal y tarjeta de advertencia (LOTOTO).</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">03</div>
+            <div>
+              <div class="rule-title">Verificar ausencia de tensión</div>
+              <div class="rule-desc">Comprobación con voltímetro verificado — antes y después.</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">04</div>
+            <div>
+              <div class="rule-title">Puesta a tierra y cortocircuito</div>
+              <div class="rule-desc">Descarga segura de tensiones remanentes o accidentales.</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">05</div>
+            <div>
+              <div class="rule-title">Señalizar y delimitar zona</div>
+              <div class="rule-desc">Avisos claros de peligro, protección del personal circundante.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOTOTO + AST -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="card" style="flex: 1;">
+            <p class="t-mono t-accent mb-3" style="font-weight: 500;">PROTOCOLO LOTOTO</p>
+            <p class="t-small" style="line-height: 1.6; margin-bottom: 1rem;">
+              <strong class="t-white">Lock Out · Tag Out · Try Out.</strong> Candado personal intransferible, tarjeta con datos del operador y prueba de arranque en vacío para certificar energía cero antes de cualquier intervención.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Bloqueo Físico</span>
+              <span class="tag">Etiquetado Personal</span>
+              <span class="tag">Prueba Efectiva</span>
+            </div>
+          </div>
+          <div class="card" style="flex: 1;">
+            <p class="t-mono t-accent mb-3" style="font-weight: 500;">CONFECCIÓN DE AST</p>
+            <p class="t-small" style="line-height: 1.6; margin-bottom: 1rem;">
+              <strong class="t-white">Análisis de Trabajo Seguro.</strong> Desglose paso a paso de la intervención, identificación de peligros (arco eléctrico, caída, atrapamiento) y definición de controles jerárquicos antes de iniciar.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Paso a Paso</span>
+              <span class="tag">Riesgos Críticos</span>
+              <span class="tag">Controles</span>
+            </div>
+          </div>
+          <div class="card" style="flex: 0;">
+            <p class="t-mono t-accent mb-3" style="font-weight: 500;">USO DE EPP</p>
+            <p class="t-small" style="line-height: 1.6;">
+              Casco, lentes de seguridad, guantes dieléctricos, calzado de seguridad y protección auditiva. Selección rigurosa según el tipo de riesgo de cada tarea.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── PROYECTOS ── -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <p class="t-heading mb-3">Experiencia Aplicada</p>
+      <h2 class="t-section mb-8">Proyectos de taller</h2>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">Tablero de Control y Secuencia con PLC</div>
+          <span class="tag">2026</span>
+        </div>
+        <p class="t-body" style="max-width: 48rem;">
+          Diseño integral y cableado completo de tablero de mando industrial. Programación de secuencias lógicas en Ladder para actuadores y señalización luminosa. Puesta en marcha con verificación de tiempos y registro de parámetros operacionales.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="tag">PLC Ladder</span>
+          <span class="tag">Cableado Fuerza/Control</span>
+          <span class="tag">Protecciones Térmicas</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">Diagnóstico y Reparación de Circuitos de Potencia</div>
+          <span class="tag">2025</span>
+        </div>
+        <p class="t-body" style="max-width: 48rem;">
+          Detección sistemática de averías en etapas de rectificación, filtrado y regulación mediante osciloscopio y multímetro. Reemplazo de componentes, soldadura de precisión y validación de curva de salida nominal.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="tag">Osciloscopio</span>
+          <span class="tag">Soldadura SMD</span>
+          <span class="tag">Rizado Dentro de Norma</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">Instalación Eléctrica Industrial — Motor Trifásico</div>
+          <span class="tag">2026</span>
+        </div>
+        <p class="t-body" style="max-width: 48rem;">
+          Tendido de canalizaciones y conductores según normativa SEC. Montaje de contactores, guardamotores y circuito de arranque con inversión de giro. Desenergización completa y comprobación de ausencia de tensión previo al montaje.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="tag">Normativa SEC / RIC</span>
+          <span class="tag">Arranque Trifásico</span>
+          <span class="tag">Bloqueo Previo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── EDUCACIÓN ── -->
+  <section class="section">
+    <div class="container">
+      <p class="t-heading mb-3">Formación</p>
+      <h2 class="t-section mb-6">Educación Técnico-Profesional</h2>
+      <div class="card">
+        <div class="flex items-center justify-between flex-wrap gap-3" style="margin-bottom: 0.75rem;">
+          <div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--text);">Escuela Industrial Salesiana San Ramón</div>
+            <div class="t-small">La Serena, Región de Coquimbo</div>
+          </div>
+          <span class="badge badge-live" style="background: rgba(217, 119, 6, 0.08); border-color: rgba(217, 119, 6, 0.2); color: var(--accent-s);">
+            <span class="dot" style="background: var(--accent-s);"></span>
+            2022 – 2026 · En Egreso
+          </span>
+        </div>
+        <p class="t-small" style="line-height: 1.7;">
+          Técnico de Nivel Medio en Electrónica. Dos años de formación diferenciada en talleres con equipamiento industrial. Módulos: Electrónica Analógica y Digital, Sistemas de Control, Instalaciones Eléctricas, Instrumentación Industrial, Automatización con PLC y Prevención de Riesgos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width: 1080px; margin: 0 auto;">
+
+  <!-- ── CONTACTO ── -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="text-center mb-12">
+        <p class="t-heading mb-3">Contacto Directo</p>
+        <h2 class="t-section">Coordinemos una entrevista</h2>
+      </div>
+
+      <div class="grid-3" style="gap: 1rem; margin-bottom: 3rem;">
+        <a href="tel:+56973411476" class="card contact-card">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="t-small" style="margin-bottom: 0.25rem;">Teléfono</div>
+          <div class="t-white" style="font-weight: 600; font-size: 0.9375rem;">+56 9 7341 1476</div>
+        </a>
+
+        <a href="https://wa.me/56973411476?text=Hola%20Mat%C3%ADas,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20entrevista." target="_blank" class="card contact-card" style="border-color: rgba(217, 119, 6, 0.3);">
+          <div class="contact-icon" style="border-color: rgba(217, 119, 6, 0.25); color: var(--accent-s);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="t-small" style="margin-bottom: 0.25rem; color: var(--accent-s);">Respuesta Rápida</div>
+          <div class="t-white" style="font-weight: 600; font-size: 0.9375rem;">WhatsApp Directo</div>
+        </a>
+
+        <a href="mailto:matiatorreschavez@gmail.com" class="card contact-card">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="t-small" style="margin-bottom: 0.25rem;">Correo</div>
+          <div class="t-white" style="font-weight: 600; font-size: 0.8125rem;">matiatorreschavez@gmail.com</div>
+        </a>
+      </div>
+
+      <!-- Descarga -->
+      <div class="card text-center" style="padding: 2.5rem;">
+        <p class="t-heading mb-3">Documentación Oficial</p>
+        <p class="t-section" style="font-size: 1.375rem; margin-bottom: 1.5rem;">Descarga directa — listos para selección</p>
+        <div class="flex flex-wrap gap-3" style="justify-content: center;">
+          <a href="CV_Matias_Torres_Chavez.pdf" download class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CV Completo (1 Página)
+          </a>
+          <a href="Carta_Presentacion_Matias_Torres_Chavez.pdf" download class="btn btn-ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Carta Minera (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer style="padding: 2.5rem 0; border-top: 1px solid var(--border);">
+    <div class="container text-center">
+      <p class="t-small" style="font-weight: 500; color: var(--text-3);">
+        Matías Ignacio Torres Chávez &nbsp;·&nbsp; RUT 22.786.157-6
+      </p>
+      <p class="t-small" style="margin-top: 0.25rem;">
+        Técnico de Nivel Medio en Electrónica &nbsp;·&nbsp; Escuela Industrial Salesiana San Ramón
+      </p>
+      <p class="t-mono" style="margin-top: 0.75rem; color: var(--text-3); font-size: 0.625rem; letter-spacing: 0.1em;">
+        COQUIMBO / LA SERENA · CHILE · 2026
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
